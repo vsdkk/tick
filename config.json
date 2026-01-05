@@ -1,21 +1,19 @@
 {
   "ver": 1,
-  "ttl_sec": 3600,
+  "ttl_sec": 1800,
   "timeout_ms": 4500,
 
-  "default_source": "bybit",
-  "active_source": "bybit",
-
-  "bybit": {
-    "endpoint": "https://api.bybit.com/v5/market/tickers?category={cat}&symbol={sym}"
+  "primary": {
+    "name": "bybit",
+    "spot":   "https://api.bybit.com/v5/market/tickers?category=spot&symbol={sym}",
+    "linear": "https://api.bybit.com/v5/market/tickers?category=linear&symbol={sym}"
   },
 
-  "coingecko": {
-    "endpoint": "https://api.coingecko.com/api/v3/simple/price?ids={id}&vs_currencies=usd&include_24hr_change=true",
-    "map": {
-      "BTCUSDT": "bitcoin",
-      "ETHUSDT": "ethereum",
-      "SOLUSDT": "solana"
-    }
-  }
+  "backup": {
+    "name": "binance",
+    "spot":   "https://api.binance.com/api/v3/ticker/24hr?symbol={sym}",
+    "linear": "https://fapi.binance.com/fapi/v1/ticker/24hr?symbol={sym}"
+  },
+
+  "notes": "Symbols are expected in the same format as stored in your device (e.g. BTCUSDT). If you change URL structure, bump ver."
 }
