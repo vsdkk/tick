@@ -1,0 +1,21 @@
+{
+  "ver": 1,
+  "ttl_sec": 3600,
+  "timeout_ms": 4500,
+
+  "default_source": "bybit",
+  "active_source": "bybit",
+
+  "bybit": {
+    "endpoint": "https://api.bybit.com/v5/market/tickers?category={cat}&symbol={sym}"
+  },
+
+  "coingecko": {
+    "endpoint": "https://api.coingecko.com/api/v3/simple/price?ids={id}&vs_currencies=usd&include_24hr_change=true",
+    "map": {
+      "BTCUSDT": "bitcoin",
+      "ETHUSDT": "ethereum",
+      "SOLUSDT": "solana"
+    }
+  }
+}
